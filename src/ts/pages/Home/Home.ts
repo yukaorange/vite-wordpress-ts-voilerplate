@@ -4,8 +4,7 @@ import GSAP from 'gsap'
 import { each } from 'lodash'
 import { SwiperOptions } from 'swiper/types'
 
-import HomeSwiper from '@ts/pages/Home/component/HomeSwiper'
-import SwiperProvider from '@ts/common/ui/SwiperProvider'
+import SwiperFacade from '@ts/pages/Home/component/SwiperFacade'
 
 import HomeAccordion from '@ts/pages/Home/component/HomeAccordion'
 import AccordionProvider from '@ts/common/ui/AccordionProvider'
@@ -18,7 +17,7 @@ type TOptions = {
 }
 
 export default class Home extends Page {
-  private swiper_1: HomeSwiper | null = null
+  private swiperFacade: SwiperFacade | null = null
   private accordion_1: HomeAccordion | null = null
   private tabChanger_1: HomeTabChanger | null = null
 
@@ -38,44 +37,45 @@ export default class Home extends Page {
   public create() {
     super.create()
 
-    // this.swiperCreate()
+    this.swiperCreate()
 
     // this.accordionCreate()
 
     // this.tabChangerCreate()
   }
 
-  // private swiperCreate() {
-  //   const swiper_1_options: SwiperOptions = {
-  //     slidesPerView: 'auto',
+  private swiperCreate() {
+    const swiper_options: SwiperOptions = {
+      slidesPerView: 'auto',
 
-  //     autoplay: {
-  //       delay: 3000,
-  //     },
+      autoplay: {
+        delay: 3000,
+      },
 
-  //     loop: true,
+      loop: true,
 
-  //     freeMode: {
-  //       enabled: false,
-  //     },
-  //   }
+      freeMode: {
+        enabled: false,
+      },
+    }
 
-  //   this.swiper_1 = new HomeSwiper(this.elements.swiper_1, new SwiperProvider())
+    this.swiperFacade = new SwiperFacade(this.elements.swiper_1)
 
-  //   this.swiper_1.initialize()
-  //   this.swiper_1.generate(swiper_1_options)
-  // }
+    this.swiperFacade.initialize()
 
-  // private accordionCreate() {
-  //   this.accordion_1 = new HomeAccordion(this.elements.accordion_1, new AccordionProvider())
+    this.swiperFacade.generate(swiper_options)
+  }
 
-  //   this.accordion_1.initialize()
-  //   this.accordion_1.generate()
-  // }
+  private accordionCreate() {
+    this.accordion_1 = new HomeAccordion(this.elements.accordion_1, new AccordionProvider())
 
-  // private tabChangerCreate() {
-  //   this.tabChanger_1 = new HomeTabChanger(this.elements.tabChanger_1, new TabChangerProvider())
-  // }
+    this.accordion_1.initialize()
+    this.accordion_1.generate()
+  }
+
+  private tabChangerCreate() {
+    this.tabChanger_1 = new HomeTabChanger(this.elements.tabChanger_1, new TabChangerProvider())
+  }
 
   /**
    * animation

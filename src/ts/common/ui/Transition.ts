@@ -19,9 +19,7 @@ export default class Transition {
       transitions: [
         {
           name: 'default-transition',
-          once: (data) => {
-            this.trackPageView(location.pathname)
-          },
+          once: () => {},
           beforeLeave: () => {
             Logger.log(`from Transition.ts / page hide`)
 
@@ -54,14 +52,16 @@ export default class Transition {
             return this.page.set()
           },
           afterEnter: () => {
-            this.trackPageView(location.pathname)
-
             return this.page.show()
           },
         },
       ],
       views: [],
       debug: true,
+    })
+
+    Barba.hooks.after(() => {
+      this.trackPageView(location.pathname)
     })
   }
 

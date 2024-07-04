@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
 
 <head>
-  
+
   <script>
     // gtag('config', 'YOUR_GTAG_ID', {
     //   'send_page_view': false

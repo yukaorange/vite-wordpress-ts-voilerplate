@@ -11,8 +11,7 @@ function mytheme_enqueue()
   // wp_dequeue_style('global-styles');
 
   //ブロックエディターボタンのCSS無効
-  wp_dequeue_style('classic-theme-styles');
-
+  // wp_dequeue_style('classic-theme-styles');
 
   // ダッシュアイコン有効化
   // wp_enqueue_style('dashicons');

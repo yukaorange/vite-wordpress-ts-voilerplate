@@ -18,4 +18,4 @@ if (defined('IS_VITE_DEVELOPMENT') && IS_VITE_DEVELOPMENT === true) {
 
 
 // テキストエディタの自動整形を無効化
-add_filter( 'run_wptexturize', '__return_false' );
+add_filter('run_wptexturize', '__return_false');

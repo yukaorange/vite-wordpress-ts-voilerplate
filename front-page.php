@@ -5,6 +5,8 @@
       <h2 data-animation="text">front page</h2>
     </div>
 
+    <?php get_template_part('template-part/common/basic-component'); ?>
+    
     <?php get_template_part('template-part/common/develop'); ?>
   </main>
 </div>

@@ -12,8 +12,8 @@ function mytheme_setup()
   add_theme_support('responsive-embeds');
 
   // エディター用のCSSを有効化&エディタに取り込み
-  // add_theme_support('editor-styles');
-  // add_editor_style(get_template_directory_uri() . '/css/editor-style.css');
+  add_theme_support('editor-styles');
+  add_editor_style(get_template_directory_uri() . '/css/editor-style.css');
 
   // link,style,scriptのhtml5対応を有効化
   add_theme_support('html5', array('style', 'script'));
@@ -28,4 +28,3 @@ function mytheme_setup()
   add_post_type_support('page', 'excerpt');
 }
 add_action('after_setup_theme', 'mytheme_setup');
-
